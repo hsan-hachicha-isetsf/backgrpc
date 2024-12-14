@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package notification;
+
+service NotificationService {
+  rpc notifyStockChange (stream StockUpdate) returns (stream StockUpdate);
+}
+
+message StockUpdate {
+  string articleId = 1;
+  int32 newStock = 2;
+}
